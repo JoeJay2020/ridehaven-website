@@ -1,0 +1,344 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* space between image and text */
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.logo-img {
+  height: 40px; /* adjust the height as needed */
+  width: auto;  /* keeps the image proportional */
+  object-fit: contain;
+}
+
+body {
+  background: #FFFFFF;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #2E7D32;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.navbar .logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #3F51B5;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu */
+.nav-links-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  background: #1B5E20;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+/* Show mobile menu when active */
+.nav-links.active {
+  display: flex;
+  max-height: 300px;
+}
+
+/* Carousel Hero Section */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 500px;
+  position: relative;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(65%);
+}
+
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  max-width: 600px;
+  color: #fff;
+}
+
+.caption h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.caption p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.caption .btn {
+  background: #3F51B5;
+  color: #fff;
+  padding: 0.9rem 1.8rem;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.caption .btn:hover {
+  background: #303f9f;
+}
+
+/* Carousel buttons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Features Section */
+.features-section {
+  padding: 4rem 5%;
+  background: #f1f8e9;
+  text-align: center;
+}
+
+.features-section h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #2E7D32;
+}
+
+/* Features Grid (uses Flexbox instead of Grid) */
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.feature-card {
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 220px; /* acts like minmax(220px,1fr) */
+  max-width: 300px;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+  color: #1B5E20;
+}
+
+/* Drivers & Passengers Sections */
+.drivers-section, .passengers-section {
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.drivers-section h2, .passengers-section h2 {
+  color: #2E7D32;
+  margin-bottom: 1rem;
+}
+
+.drivers-section p, .passengers-section p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn {
+  background: #3F51B5;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #303f9f;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 4rem 5%;
+  background: #f1f8e9;
+  text-align: center;
+}
+
+.contact-section h2 {
+  margin-bottom: 2rem;
+  color: #2E7D32;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.contact-form button {
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background: #1B5E20;
+  color: #fff;
+  padding: 1.5rem 5%;
+  text-align: center;
+}
+
+.socials a img {
+  width: 24px;
+  margin-left: 10px;
+  filter: brightness(0) invert(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 5%;
+    background: #2E7D32;
+    padding: 1rem;
+    border-radius: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .features-grid {
+    flex-direction: column; /* stack cards vertically */
+    gap: 1.5rem;
+  }
+}
